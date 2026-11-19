@@ -1,4 +1,4 @@
-﻿namespace AntiDLL_CS2_SimpleAdmin;
+namespace AntiDLL_CS2_SimpleAdmin;
 
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.ValveConstants.Protobuf;
@@ -97,7 +97,7 @@ public sealed class AntiDLL_CS2_SimpleAdmin : BasePlugin, IPluginConfig<PluginCo
         if (player == null || !player.IsValid || player.IsBot || !_detections.Contains(player.Slot)) 
             return HookResult.Continue;
         
-        if (!_bannedPlayers.Contains(player.Slot) && player.Connected == PlayerConnectedState.PlayerConnected && player.TeamNum != 0)
+        if (!_bannedPlayers.Contains(player.Slot) && player.Connected == PlayerConnectedState.Connected && player.TeamNum != 0)
             PunishPlayer(player);
 
         return HookResult.Continue;
@@ -109,7 +109,7 @@ public sealed class AntiDLL_CS2_SimpleAdmin : BasePlugin, IPluginConfig<PluginCo
         if (!_detections.Add(player.Slot))
             return;
         
-        // if (player.Connected != PlayerConnectedState.PlayerConnected)
+        // if (player.Connected != PlayerConnectedState.Connected)
         // {
         //     _detections.Add(player.Slot);
         //     // AddTimer(3.0f, () => OnDetection(player, eventName));
