@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.ValveConstants.Protobuf;
 using CounterStrikeSharp.API.Modules.Entities;
 using CS2_SimpleAdminApi;
@@ -126,7 +126,10 @@ internal class BanManager(IDatabaseProvider? databaseProvider)
                 serverid = CS2_SimpleAdmin.ServerId
             });
         }
-        catch { }
+        catch (Exception ex)
+        {
+            CS2_SimpleAdmin._logger?.LogError($"Unable to add IP ban for {playerIp}: {ex.Message}");
+        }
     }
 
 //     public async Task<bool> IsPlayerBanned(PlayerInfo player)
