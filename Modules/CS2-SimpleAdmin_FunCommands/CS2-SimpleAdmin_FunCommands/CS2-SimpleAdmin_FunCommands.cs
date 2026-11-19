@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Capabilities;
 using CounterStrikeSharp.API.Modules.Admin;
@@ -470,7 +470,7 @@ public partial class CS2_SimpleAdmin_FunCommands : BasePlugin, IPluginConfig<Con
                 {
                     var player = kvp.Key;
                     // Early validation check - avoid accessing PlayerPawn if player is invalid
-                    if (player.IsValid && player.Connected == PlayerConnectedState.PlayerConnected)
+                    if (player.IsValid && player.Connected == PlayerConnectedState.Connected)
                     {
                         var pawn = player.PlayerPawn?.Value;
                         if (pawn != null && pawn.LifeState == (int)LifeState_t.LIFE_ALIVE)
@@ -487,7 +487,7 @@ public partial class CS2_SimpleAdmin_FunCommands : BasePlugin, IPluginConfig<Con
                 foreach (var kvp in GravityPlayers)
                 {
                     var player = kvp.Key;
-                    if (player.IsValid && player.Connected == PlayerConnectedState.PlayerConnected)
+                    if (player.IsValid && player.Connected == PlayerConnectedState.Connected)
                     {
                         var pawn = player.PlayerPawn?.Value;
                         if (pawn != null && pawn.LifeState == (int)LifeState_t.LIFE_ALIVE)
