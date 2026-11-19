@@ -1,4 +1,4 @@
-﻿using CS2_SimpleAdmin.Database;
+using CS2_SimpleAdmin.Database;
 using CS2_SimpleAdminApi;
 using Dapper;
 using Microsoft.Extensions.Logging;
@@ -217,7 +217,10 @@ internal class MuteManager(IDatabaseProvider? databaseProvider)
 
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            CS2_SimpleAdmin._logger?.LogError($"Unable to check online mode mutes: {ex.Message}");
+        }
     }
 
     /// <summary>
