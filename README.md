@@ -71,7 +71,7 @@ Die Konfigurationsdatei (`CS2-SimpleAdmin.json`) wird nach dem ersten Start auto
 
 Die vollständige Dokumentation, Anleitungen, Tutorials und die Entwickler-API-Referenz findest du hier:  
 [CS2-SimpleAdmin Wiki](https://cs2-simpleadmin.daffyy.dev)
-
+Leider Existiert diese Seite nicht mehr.
 ---
 
 ## 🛠️ Entwicklung
