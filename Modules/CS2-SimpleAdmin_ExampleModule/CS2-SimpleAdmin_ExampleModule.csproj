@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
-        <RootNamespace>AntiDLL_CS2_SimpleAdmin</RootNamespace>
+        <RootNamespace>CS2_SimpleAdmin_ExampleModule</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -12,9 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="AntiDLL.API">
-        <HintPath>AntiDLL.API.dll</HintPath>
-      </Reference>
       <ProjectReference Include="..\..\CS2-SimpleAdminApi\CS2-SimpleAdminApi.csproj">
         <Private>false</Private>
       </ProjectReference>
