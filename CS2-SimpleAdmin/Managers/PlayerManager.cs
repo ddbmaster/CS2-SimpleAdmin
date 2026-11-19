@@ -336,7 +336,8 @@ internal class PlayerManager
             {
                 SteamID = steamId64,
                 playerName,
-                IPAddress = ipUint
+                // Bind as Int64 so SQLite stores addresses >= 128.0.0.0 as positive values
+                IPAddress = (long)ipUint
             });
         }
         catch (Exception ex)
