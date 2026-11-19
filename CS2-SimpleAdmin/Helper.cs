@@ -963,7 +963,7 @@ public static class PluginInfo
     internal static async Task CheckVersion(string localVersion, ILogger logger)
     {
         ShowAd(localVersion);
-        const string versionUrl = "https://raw.githubusercontent.com/daffyyyy/CS2-SimpleAdmin/main/CS2-SimpleAdmin/VERSION";
+        const string versionUrl = "https://raw.githubusercontent.com/ddbmaster/CS2-SimpleAdmin/main/CS2-SimpleAdmin/VERSION";
         var client = CS2_SimpleAdmin.HttpClient;
         client.Timeout = TimeSpan.FromSeconds(3);
         
@@ -981,7 +981,7 @@ public static class PluginInfo
                 switch (comparisonResult)
                 {
                     case < 0:
-                        logger.LogWarning("Plugin is outdated! Check https://github.com/daffyyyy/CS2-SimpleAdmin");
+                     logger.LogWarning("Plugin is outdated! Check https://github.com/ddbmaster/CS2-SimpleAdmin");
                         break;
                     case > 0:
                         logger.LogInformation("Probably dev version detected");
