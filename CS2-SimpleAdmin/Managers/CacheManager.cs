@@ -96,12 +96,12 @@ internal class CacheManager: IDisposable
                     currentSteamId = (ulong)record.Steamid;
 
                     // Only keep the latest timestamp for each IP
-                    if (!latestIpTimestamps.TryGetValue(record.Address, out var existingTimestamp) ||
+                    if (!latestIpTimestamps.TryGetValue(record.AddressUint, out var existingTimestamp) ||
                         record.Used_at > existingTimestamp)
                     {
-                        latestIpTimestamps[record.Address] = record.Used_at;
+                        latestIpTimestamps[record.AddressUint] = record.Used_at;
                         currentIpSet.Add(new IpRecord(
-                            record.Address,
+                            record.AddressUint,
                             record.Used_at,
                             string.IsNullOrEmpty(record.Name) ? unknownName : record.Name
                         ));
@@ -125,7 +125,7 @@ internal class CacheManager: IDisposable
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            CS2_SimpleAdmin._logger?.LogError(e, "Failed to initialize cache");
         }
     }
     
@@ -293,7 +293,7 @@ internal class CacheManager: IDisposable
                 {
                     var ipSet = new HashSet<IpRecord>(
                         group
-                            .GroupBy(x => x.Address)
+                            .GroupBy(x => x.AddressUint)
                             .Select(g =>
                             {
                                 var latest = g.MaxBy(x => x.Used_at)!; // group is never empty
